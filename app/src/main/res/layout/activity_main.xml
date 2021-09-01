@@ -4,13 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#56131313"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/txt_display"
         android:layout_width="350dp"
-        android:layout_height="95dp"
+        android:layout_height="100dp"
         android:layout_marginTop="60dp"
+        android:background="#000000"
+        android:gravity="center"
+        android:text="0"
+        android:maxLength="7"
+        android:textAlignment="textEnd"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textIsSelectable="false"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +33,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/btn_equal"
+        android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@+id/btn_zero"
         app:layout_constraintTop_toBottomOf="@+id/btn_add" />
 
@@ -32,17 +43,21 @@
         android:layout_height="64dp"
         android:layout_marginStart="41dp"
         android:layout_marginTop="20dp"
+
         android:text="@string/btn_seven"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_backspace" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_delete"
+        app:strokeColor="#B17474" />
 
     <Button
-        android:id="@+id/btn_backspace"
+        android:id="@+id/btn_delete"
         android:layout_width="153dp"
         android:layout_height="64dp"
         android:layout_marginStart="41dp"
         android:layout_marginTop="34dp"
-        android:text="@string/btn_backspace"
+        android:text="@string/btn_delete"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_display" />
 
@@ -94,7 +109,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/btn_eight"
         app:layout_constraintStart_toEndOf="@+id/btn_seven"
-        app:layout_constraintTop_toBottomOf="@+id/btn_backspace" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_delete" />
 
     <Button
         android:id="@+id/btn_nine"
@@ -183,7 +198,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="34dp"
         android:text="@string/btn_clear"
-        app:layout_constraintStart_toEndOf="@+id/btn_backspace"
+        app:layout_constraintStart_toEndOf="@+id/btn_delete"
         app:layout_constraintTop_toBottomOf="@+id/txt_display" />
 
     <Button
