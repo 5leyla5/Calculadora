@@ -58,6 +58,7 @@
         android:layout_marginStart="41dp"
         android:layout_marginTop="34dp"
         android:text="@string/btn_delete"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_display" />
 
@@ -68,6 +69,7 @@
         android:layout_marginStart="41dp"
         android:layout_marginTop="20dp"
         android:text="@string/btn_decimal"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_one" />
 
@@ -78,6 +80,7 @@
         android:layout_marginStart="41dp"
         android:layout_marginTop="20dp"
         android:text="@string/btn_four"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_seven" />
 
@@ -88,6 +91,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/btn_zero"
+        android:textSize="25sp"
         app:layout_constraintStart_toEndOf="@+id/btn_decimal"
         app:layout_constraintTop_toBottomOf="@+id/btn_two" />
 
@@ -98,6 +102,7 @@
         android:layout_marginStart="41dp"
         android:layout_marginTop="20dp"
         android:text="@string/btn_one"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_four" />
 
@@ -108,6 +113,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/btn_eight"
+        android:textSize="25sp"
         app:layout_constraintStart_toEndOf="@+id/btn_seven"
         app:layout_constraintTop_toBottomOf="@+id/btn_delete" />
 
@@ -118,6 +124,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/btn_nine"
+        android:textSize="25sp"
         app:layout_constraintStart_toEndOf="@+id/btn_eight"
         app:layout_constraintTop_toBottomOf="@+id/btn_clear" />
 
@@ -128,6 +135,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/btn_multiply"
+        android:textSize="25sp"
         app:layout_constraintStart_toEndOf="@+id/btn_nine"
         app:layout_constraintTop_toBottomOf="@+id/btn_divide" />
 
@@ -138,6 +146,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/btn_add"
+        android:textSize="25sp"
         app:layout_constraintStart_toEndOf="@+id/btn_three"
         app:layout_constraintTop_toBottomOf="@+id/btn_subtract" />
 
@@ -148,6 +157,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/btn_two"
+        android:textSize="25sp"
         app:layout_constraintStart_toEndOf="@+id/btn_one"
         app:layout_constraintTop_toBottomOf="@+id/btn_five" />
 
@@ -158,6 +168,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/btn_five"
+        android:textSize="25sp"
         app:layout_constraintStart_toEndOf="@+id/btn_four"
         app:layout_constraintTop_toBottomOf="@+id/btn_eight" />
 
@@ -168,6 +179,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/btn_subtract"
+        android:textSize="25sp"
         app:layout_constraintStart_toEndOf="@+id/btn_six"
         app:layout_constraintTop_toBottomOf="@+id/btn_multiply" />
 
@@ -178,6 +190,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/btn_six"
+        android:textSize="25sp"
         app:layout_constraintStart_toEndOf="@+id/btn_five"
         app:layout_constraintTop_toBottomOf="@+id/btn_nine" />
 
@@ -188,6 +201,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/btn_three"
+        android:textSize="25sp"
         app:layout_constraintStart_toEndOf="@+id/btn_two"
         app:layout_constraintTop_toBottomOf="@+id/btn_six" />
 
@@ -198,6 +212,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="34dp"
         android:text="@string/btn_clear"
+        android:textSize="25sp"
         app:layout_constraintStart_toEndOf="@+id/btn_delete"
         app:layout_constraintTop_toBottomOf="@+id/txt_display" />
 
@@ -208,6 +223,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="34dp"
         android:text="@string/btn_divide"
+        android:textSize="25sp"
         app:layout_constraintStart_toEndOf="@+id/btn_clear"
         app:layout_constraintTop_toBottomOf="@+id/txt_display" />
 

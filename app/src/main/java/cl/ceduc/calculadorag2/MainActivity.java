@@ -1,6 +1,5 @@
 package cl.ceduc.calculadorag2;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,11 +8,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
     Button btn_zero, btn_one, btn_two, btn_three, btn_four, btn_five, btn_six, btn_seven, btn_eight, btn_nine, btn_decimal, btn_clear, btn_delete, btn_add, btn_subtract, btn_multiply,btn_divide, btn_equal;
     TextView txt_display;
     double num1, num2, digito, resultado;
-    String operador, actual, nuevo;
+    String operador, actual, nuevo, txt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         btn_nine.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {setDigito("9");}});
         btn_decimal.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {setDigito(".");}});
+            public void onClick(View v) {setDecimal();}});
 
         //Botones Operacionales
         btn_clear.setOnClickListener(new View.OnClickListener(){
@@ -96,25 +98,38 @@ public class MainActivity extends AppCompatActivity {
             }});
     }
 
-
     public void setDigito(String ingresonum) {
         txt_display = (TextView) this.findViewById(R.id.txt_display);
         digito = Double.parseDouble(txt_display.getText().toString());
-            if (digito == 0.0) {
-                txt_display.setText(ingresonum);
-            }else{
+            if (digito != 0.0) {
                 actual = txt_display.getText().toString();
                 nuevo = actual + ingresonum;
                 txt_display.setText(nuevo);
+            }else{
+                txt_display.setText(ingresonum);
             }
-        // borrar numero despues de una operacion, sino siguen los numeros agregandose
-        // restringir punto decimal (solo uno por digito)
+        // borrar numero despues de una operacion, sino siguen los numeros agregandos
+    }
+
+    public void setDecimal (){
+        txt_display = (TextView) this.findViewById(R.id.txt_display);
+        digito = Double.parseDouble(txt_display.getText().toString());
+        if (digito == 0) {
+            actual = "0.";
+            //txt_display.setText("0." + setDigito()); // falta cohesionar numero 0. + se imprime despues el numero
+        } else {
+            txt_display = (TextView) this.findViewById(R.id.txt_display);
+            String txt = txt_display.getText().toString();
+                if (!txt.contains(".")) {
+                // txt_display.append("." + setDigito());
+            }
+        }
     }
 
     public void setOperacion() {
         txt_display = (TextView) this.findViewById(R.id.txt_display);
         num1 = Double.parseDouble(txt_display.getText().toString());
-        txt_display.setText("0");
+
     }
 
     public void setEqual() {
@@ -128,30 +143,42 @@ public class MainActivity extends AppCompatActivity {
             resultado = num1 * num2;
         }else if (operador.equals("/")) {
             if (num2 == 0){
-                txt_display.setText("0");
                 Toast.makeText(this,"Operación no válida",Toast.LENGTH_LONG).show();
+                txt_display.setText("0");
             }else{
-                resultado = num1 / num2;}}
-        txt_display.setText(resultado + "");
+                resultado = num1 / num2;
+            }}
+        txt_display.setText(resultado+"");
+        //DecimalFormat format = new DecimalFormat("0.#");
+        //txt_display.setText((format.format(resultado)));
 
         num1 = 0;
         num2 = 0;
         operador = "";
 
-        // numero final sale en double, sacar el ,0 y arreglar que se pueden seguir ingresando numeros
+        //si se ingresa otro numero , se debe borrar el anterior y comenzar a escribir con otro
+        // txt_display.setText("0");
+
+
     }
 
-    public void setClear() {
+    public boolean setClear() {
         txt_display = (TextView) this.findViewById(R.id.txt_display);
         num1 = 0;
         num2 = 0;
         operador = "";
         txt_display.setText("0");
+        return false;
     }
 
-    public void setDelete (){
-        if(txt_display.getText().toString().equals(" ")){
-            txt_display.setText(txt_display.getText().subSequence(0,txt_display.getText().length()-1)+" ");
-        }
+    public void setDelete () {
+        String txt = txt_display.getText().toString();
+        if (txt.length() > 0) {
+            txt = txt.substring(0, txt.length() - 1);
+            if (txt.equals(""))
+                txt = "0";
+                txt_display.setText(txt);
+            //txt_display.setSelection(txt.length());
+            }
     }
 }
