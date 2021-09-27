@@ -65,7 +65,18 @@ public class MainActivity extends AppCompatActivity {
         btn_nine.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {setDigito("9");}});
         btn_decimal.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {setDecimal();}});
+            public void onClick(View v) {
+                if (txt_display.getText().toString().equals("0")){
+                    txt_display.setText("0.");
+                    txt = txt_display.getText().toString();
+                    setDigito(txt);
+                }else{
+                    txt = txt_display.getText().toString();
+                    if (!txt.contains(".")){
+                        txt_display.append(".");
+                    }
+                }
+        }});
 
         //Botones Operacionales
         btn_clear.setOnClickListener(new View.OnClickListener(){
@@ -101,12 +112,12 @@ public class MainActivity extends AppCompatActivity {
     public void setDigito(String ingresonum) {
         txt_display = (TextView) this.findViewById(R.id.txt_display);
         digito = Double.parseDouble(txt_display.getText().toString());
-            if (digito != 0.0) {
+            if (digito != 0) {
                 actual = txt_display.getText().toString();
                 nuevo = actual + ingresonum;
                 txt_display.setText(nuevo);
             }else{
-                txt_display.setText(ingresonum);
+               txt_display.setText(ingresonum);
             }
         // borrar numero despues de una operacion, sino siguen los numeros agregandos
     }
@@ -115,21 +126,25 @@ public class MainActivity extends AppCompatActivity {
         txt_display = (TextView) this.findViewById(R.id.txt_display);
         digito = Double.parseDouble(txt_display.getText().toString());
         if (digito == 0) {
-            actual = "0.";
-            //txt_display.setText("0." + setDigito()); // falta cohesionar numero 0. + se imprime despues el numero
+            actual="0.";
+            setDigito(".");
+            // falta cohesionar numero 0. + se imprime despues el numero
         } else {
             txt_display = (TextView) this.findViewById(R.id.txt_display);
             String txt = txt_display.getText().toString();
-                if (!txt.contains(".")) {
-                // txt_display.append("." + setDigito());
+            if (!txt.contains(".")) {
+                txt_display.append(".");
             }
         }
+
+        txt_display.setText(txt_display.getText()+".");
+
     }
 
     public void setOperacion() {
         txt_display = (TextView) this.findViewById(R.id.txt_display);
         num1 = Double.parseDouble(txt_display.getText().toString());
-
+        txt_display.setText("0");
     }
 
     public void setEqual() {
@@ -144,22 +159,20 @@ public class MainActivity extends AppCompatActivity {
         }else if (operador.equals("/")) {
             if (num2 == 0){
                 Toast.makeText(this,"Operación no válida",Toast.LENGTH_LONG).show();
+                resultado = 0;
                 txt_display.setText("0");
             }else{
                 resultado = num1 / num2;
-            }}
-        txt_display.setText(resultado+"");
-        //DecimalFormat format = new DecimalFormat("0.#");
-        //txt_display.setText((format.format(resultado)));
+            }
+        }
+        DecimalFormat format = new DecimalFormat("0.#");
+        txt_display.setText((format.format(resultado)));
 
         num1 = 0;
         num2 = 0;
         operador = "";
-
         //si se ingresa otro numero , se debe borrar el anterior y comenzar a escribir con otro
         // txt_display.setText("0");
-
-
     }
 
     public boolean setClear() {
@@ -179,6 +192,6 @@ public class MainActivity extends AppCompatActivity {
                 txt = "0";
                 txt_display.setText(txt);
             //txt_display.setSelection(txt.length());
-            }
+        }
     }
 }
